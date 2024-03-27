@@ -21,6 +21,13 @@ namespace PharmaCards.Library
             }
         }
 
+        public static void SaveMedicament(MedicamentsModel medicament) {
+
+            string connectionString = "Data Source=Cards.db"; using (IDbConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Execute("INSERT INTO Medicament(Name, ) VALUES (@Name)", medicament);
+            }
+        }
     }
 }
     

@@ -6,11 +6,137 @@
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
              x:Class="PharmaCards.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<ScrollViewer>
+		<StackPanel Spacing="5" Width="300" Margin="0 50" VerticalAlignment="Center">
+			<StackPanel x:Name="startPanel">
+				<Panel>
+					<Border CornerRadius="15" ClipToBounds="True" BorderBrush="#7FFF22DD" BorderThickness="5">
+						<Panel>
+							<Panel Height="300" IsVisible="True">
+								<PathIcon Foreground="#7FFF22DD" Height="250" Width="250" Data="{StaticResource heart_pulse_regular}" />
+							</Panel>
+						</Panel>
+					</Border>
+				</Panel>
+				<TextBlock HorizontalAlignment="Center" Margin="0 10" Foreground="#7FFF22DD"
+						   FontSize="66" FontWeight="Black">PHARMA</TextBlock>
+				<TextBlock HorizontalAlignment="Center" Margin="0 -40 0 0" Foreground="#7FFF22DD"
+						   FontSize="85" FontWeight="Black">CARDS</TextBlock>
+				<Panel VerticalAlignment="Bottom" Margin="0 150 0 0">
+					<Button HorizontalAlignment="Stretch" Foreground="White"
+							Height="50" VerticalContentAlignment="Center"
+							HorizontalContentAlignment="Center" Background="#7FFF22DD"
+							FontSize="20" FontWeight="Bold" FontStretch="Expanded"
+							Click="DrawCard" CornerRadius="10">
+						SACA UNA CARTA
+					</Button>
+				</Panel>
+			</StackPanel>
+
+			<Panel x:Name="medPanel" IsVisible="False">
+				<StackPanel>
+					<TextBlock HorizontalAlignment="Center" FontSize="30"
+							   TextWrapping="WrapWithOverflow" FontWeight="Black"
+							   TextAlignment="Center" x:Name="medName">
+						Scopolamine (hyoscine)
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Center" FontSize="15" FontStyle="Italic"
+							   TextWrapping="WrapWithOverflow" FontWeight="Light"
+							   TextAlignment="Center" x:Name="medDescription" >
+						Scopolamine (hyoscine)
+					</TextBlock>
+
+					<!--INFORMACION DEL MEDICAMENTO-->
+					<StackPanel x:Name="medInfo" IsVisible="False" Margin="0 20" Spacing="5">
+
+						<!--TIPO DE MEDICAMENTO-->
+						<TextBlock HorizontalAlignment="Center" FontSize="25"
+								   TextWrapping="WrapWithOverflow" FontWeight="Black"
+								   TextAlignment="Center" x:Name="medType">
+							Cholinergic
+						</TextBlock>
+
+						<!--ACCIÓN DEL MEDICAMENTO-->
+						<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
+								   TextWrapping="WrapWithOverflow" FontWeight="Black"
+								   TextAlignment="Center">
+							ACCIÓN
+						</TextBlock>
+						<TextBlock HorizontalAlignment="Center" FontSize="18"
+								   TextWrapping="WrapWithOverflow"
+								   TextAlignment="Center" x:Name="medAction">
+							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
+						</TextBlock>
+
+						<!--METODO DE ACCION DEL MEDICAMENTO-->
+						<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
+								   TextWrapping="WrapWithOverflow" FontWeight="Black"
+								   TextAlignment="Center">
+							Metodo de Acción
+						</TextBlock>
+						<TextBlock HorizontalAlignment="Center" FontSize="18"
+								   TextWrapping="WrapWithOverflow"
+								   TextAlignment="Center" x:Name="medMOA">
+							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
+						</TextBlock>
+
+						<!--ADMINISTRACIÓN DEL MEDICAMENTO-->
+						<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
+								   TextWrapping="WrapWithOverflow" FontWeight="Black"
+								   TextAlignment="Center">
+							Administración
+						</TextBlock>
+						<TextBlock HorizontalAlignment="Center" FontSize="18"
+								   TextWrapping="WrapWithOverflow"
+								   TextAlignment="Center" x:Name="medAdministration">
+							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
+						</TextBlock>
+
+						<!--USO CLINICO DEL MEDICAMENTO-->
+						<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
+								   TextWrapping="WrapWithOverflow" FontWeight="Black"
+								   TextAlignment="Center">
+							Uso Clínico
+						</TextBlock>
+						<TextBlock HorizontalAlignment="Center" FontSize="18"
+								   TextWrapping="WrapWithOverflow"
+								   TextAlignment="Center" x:Name="medClinicalUse">
+							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
+						</TextBlock>
+
+						<!--ADMINISTRACIÓN DEL MEDICAMENTO-->
+						<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
+								   TextWrapping="WrapWithOverflow" FontWeight="Black"
+								   TextAlignment="Center">
+							Efectos Adversos
+						</TextBlock>
+						<TextBlock HorizontalAlignment="Center" FontSize="18"
+								   TextWrapping="WrapWithOverflow"
+								   TextAlignment="Center" x:Name="medAdverseEffects">
+							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
+						</TextBlock>
+
+
+					</StackPanel>
+
+					<Button HorizontalAlignment="Stretch" Foreground="White"
+							Height="50" VerticalContentAlignment="Center"
+							HorizontalContentAlignment="Center" Background="#7FFF22DD"
+							FontSize="20" FontWeight="Bold" FontStretch="Expanded"
+							Click="ShowInfo" CornerRadius="10" Margin="0 10 0 0">
+						MOSTRAR
+					</Button>
+
+					<Button HorizontalAlignment="Stretch" Foreground="White"
+							Height="50" VerticalContentAlignment="Center"
+							HorizontalContentAlignment="Center" Background="#7FFF22DD"
+							FontSize="20" FontWeight="Bold" FontStretch="Expanded"
+							Click="GoBack" CornerRadius="10" Margin="0 10 0 0">
+						VOLVER
+					</Button>
+				</StackPanel>
+			</Panel>
+		</StackPanel>
+	</ScrollViewer>
 </UserControl>
