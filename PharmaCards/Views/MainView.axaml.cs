@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using PharmaCards.Library;
+using PharmaCards.Data;
 using System;
 using System.Collections.Generic;
 
@@ -8,10 +8,12 @@ namespace PharmaCards.Views
 {
     public partial class MainView : UserControl
     {
-        MedicamentsModel medicament = new();
+        MedicamentModel medicament = new();
+        SqlDataAccess database;
         public MainView()
         {
             InitializeComponent();
+            database = new SqlDataAccess();
             LoadMedicament();
         }
 
@@ -21,10 +23,10 @@ namespace PharmaCards.Views
             medPanel.IsVisible = true;
         }
 
-        private void LoadMedicament()
+        private async void LoadMedicament()
         {
             Random r = new();
-            List<MedicamentsModel> med = SqlDataAccess.LoadMedicament();
+            List<MedicamentModel> med = await database.LoadMedicament();
             int choice = r.Next(0, med.Count);
 
             medicament = med[choice];
@@ -34,6 +36,7 @@ namespace PharmaCards.Views
             medAction.Text = medicament.Action;
             medMOA.Text = medicament.MOA;
             medAdministration.Text = medicament.Administration;
+            medClinicalUse.Text = medicament.ClinicalUse;
             medAdverseEffects.Text = medicament.AdverseEffects;
             if(medicament.SpecialPoints == "empty")
             {
