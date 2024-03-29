@@ -105,7 +105,7 @@
 							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
 						</TextBlock>
 
-						<!--ADMINISTRACIÓN DEL MEDICAMENTO-->
+						<!--EFECTOS ADVERSOS DEL MEDICAMENTO-->
 						<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
 								   TextWrapping="WrapWithOverflow" FontWeight="Black"
 								   TextAlignment="Center">
@@ -117,6 +117,20 @@
 							Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
 						</TextBlock>
 
+						<!--ADMINISTRACIÓN DEL MEDICAMENTO-->
+						<StackPanel x:Name="specialPanel">
+							<TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"
+									   TextWrapping="WrapWithOverflow" FontWeight="Black"
+									   TextAlignment="Center">
+								Puntos Especiales
+							</TextBlock>
+							<TextBlock HorizontalAlignment="Center" FontSize="18"
+									   TextWrapping="WrapWithOverflow"
+									   TextAlignment="Center" x:Name="medSpecialPoints">
+								Inhibits secretions (salivary, bronchial, sweat, gastric acid etc.). Tachycardia. Relaxes smooth muscle (causing inhibition of peristalsis, pupillary dilation, paralysis of accommodation etc.). CNS actions: antiemetic, amnesic.
+							</TextBlock>
+						</StackPanel>
+
 
 					</StackPanel>
 
@@ -124,8 +138,18 @@
 							Height="50" VerticalContentAlignment="Center"
 							HorizontalContentAlignment="Center" Background="#7FFF22DD"
 							FontSize="20" FontWeight="Bold" FontStretch="Expanded"
-							Click="ShowInfo" CornerRadius="10" Margin="0 10 0 0">
+							Click="ShowInfo" CornerRadius="10" Margin="0 10 0 0"
+							x:Name="btnShow">
 						MOSTRAR
+					</Button>
+					
+					<Button HorizontalAlignment="Stretch" Foreground="White"
+							Height="50" VerticalContentAlignment="Center"
+							HorizontalContentAlignment="Center" Background="#7FFF22DD"
+							FontSize="20" FontWeight="Bold" FontStretch="Expanded"
+							Click="DoItAgain" CornerRadius="10" Margin="0 10 0 0"
+							x:Name="btnAgain" IsVisible="False">
+						¡OTRA VEZ!
 					</Button>
 
 					<Button HorizontalAlignment="Stretch" Foreground="White"

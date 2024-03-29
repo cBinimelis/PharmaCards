@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using PharmaCards.Library;
+using System;
 using System.Collections.Generic;
 
 namespace PharmaCards.Views
@@ -22,8 +23,11 @@ namespace PharmaCards.Views
 
         private void LoadMedicament()
         {
+            Random r = new();
             List<MedicamentsModel> med = SqlDataAccess.LoadMedicament();
-            medicament = med[0];
+            int choice = r.Next(0, med.Count);
+
+            medicament = med[choice];
             medName.Text = medicament.Name;
             medDescription.Text = medicament.Description;
             medType.Text = medicament.Type;
@@ -31,6 +35,13 @@ namespace PharmaCards.Views
             medMOA.Text = medicament.MOA;
             medAdministration.Text = medicament.Administration;
             medAdverseEffects.Text = medicament.AdverseEffects;
+            if(medicament.SpecialPoints == "empty")
+            {
+                specialPanel.IsVisible = false;
+            }else
+            {
+                medSpecialPoints.Text = medicament.SpecialPoints;
+            }
         }
 
         public void GoBack(object sender, RoutedEventArgs args)
@@ -38,11 +49,22 @@ namespace PharmaCards.Views
             startPanel.IsVisible = true;
             medPanel.IsVisible = false;
             medInfo.IsVisible = false;
+            btnShow.IsVisible = true;
+            btnAgain.IsVisible = false;
         }
 
         public void ShowInfo(object sender, RoutedEventArgs args)
         {
             medInfo.IsVisible = true;
+            btnShow.IsVisible = false;
+            btnAgain.IsVisible = true;
+        }
+
+        public void DoItAgain(object sender, RoutedEventArgs args)
+        {
+            medInfo.IsVisible = false;
+            btnShow.IsVisible = true;
+            LoadMedicament();
         }
     }
 }

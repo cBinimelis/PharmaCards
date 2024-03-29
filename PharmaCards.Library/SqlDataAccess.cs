@@ -13,21 +13,21 @@ namespace PharmaCards.Library
     {
         public static List<MedicamentsModel> LoadMedicament()
         {
-        string connectionString = "Data Source=Cards.db";
-            using(IDbConnection connectiion = new SqliteConnection(connectionString))
+            string connectionString = "Data Source=Cards.db";
+            using (IDbConnection connectiion = new SqliteConnection(connectionString))
             {
                 var output = connectiion.Query<MedicamentsModel>("SELECT * FROM Medicament", new DynamicParameters());
                 return output.ToList();
             }
         }
 
-        public static void SaveMedicament(MedicamentsModel medicament) {
-
-            string connectionString = "Data Source=Cards.db"; using (IDbConnection connection = new SqliteConnection(connectionString))
+        public static void SaveMedicament(MedicamentsModel medicament)
+        {
+            string connectionString = "Data Source=Cards.db";
+            using (IDbConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Execute("INSERT INTO Medicament(Name, ) VALUES (@Name)", medicament);
             }
         }
     }
 }
-    

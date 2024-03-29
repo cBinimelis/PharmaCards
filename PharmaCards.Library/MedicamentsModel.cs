@@ -17,5 +17,6 @@ namespace PharmaCards.Library
         public string Administration { get; set; }
         public string ClinicalUse { get; set; }
         public string AdverseEffects { get; set; }
+        public string SpecialPoints { get; set; }
     }
 }
