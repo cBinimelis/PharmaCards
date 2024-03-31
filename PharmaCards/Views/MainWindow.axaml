@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:PharmaCards.Views"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
-        x:Class="PharmaCards.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="PharmaCards">
+        x:Class="PharmaCards.Views.MainWindow" ExtendClientAreaToDecorationsHint="True"
+        Icon="/Assets/avalonia-logo.ico" Width="400" Height="800"
+        Title="PharmaCards" WindowStartupLocation="CenterScreen">
 	<views:MainView />
 </Window>

@@ -14,13 +14,22 @@ namespace PharmaCards.Views
         {
             InitializeComponent();
             database = new SqlDataAccess();
-            LoadMedicament();
+            try
+            {
+                LoadMedicament();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         public void DrawCard(object sender, RoutedEventArgs args)
         {
             startPanel.IsVisible = false;
+            startPanel.IsEnabled = false;
             medPanel.IsVisible = true;
+            medPanel.IsEnabled = true;
         }
 
         private async void LoadMedicament()
@@ -38,10 +47,11 @@ namespace PharmaCards.Views
             medAdministration.Text = medicament.Administration;
             medClinicalUse.Text = medicament.ClinicalUse;
             medAdverseEffects.Text = medicament.AdverseEffects;
-            if(medicament.SpecialPoints == "empty")
+            if (medicament.SpecialPoints == "empty")
             {
                 specialPanel.IsVisible = false;
-            }else
+            }
+            else
             {
                 medSpecialPoints.Text = medicament.SpecialPoints;
             }
@@ -50,6 +60,7 @@ namespace PharmaCards.Views
         public void GoBack(object sender, RoutedEventArgs args)
         {
             startPanel.IsVisible = true;
+            //startPanel.IsEnabled = true;
             medPanel.IsVisible = false;
             medInfo.IsVisible = false;
             btnShow.IsVisible = true;
@@ -63,11 +74,18 @@ namespace PharmaCards.Views
             btnAgain.IsVisible = true;
         }
 
-        public void DoItAgain(object sender, RoutedEventArgs args)
+        public async void DoItAgain(object sender, RoutedEventArgs args)
         {
             medInfo.IsVisible = false;
             btnShow.IsVisible = true;
-            LoadMedicament();
+            try
+            {
+                LoadMedicament();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

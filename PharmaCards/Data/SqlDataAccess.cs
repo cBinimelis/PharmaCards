@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Linq;
 using Dapper;
 using System.Data;
 using SQLite;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PharmaCards.Data
 {
@@ -34,7 +36,15 @@ namespace PharmaCards.Data
 
         public SqlDataAccess()
         {
-
+            var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
+            using (Stream stream = assembly.GetManifestResourceStream("PharmaCards.Assets.Cards.db"))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    File.WriteAllBytes(Constants.DatabasePath, ms.ToArray());
+                }
+            }
         }
 
         async Task Init()

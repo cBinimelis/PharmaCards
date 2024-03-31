@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:PharmaCards.ViewModels"
              mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
              x:Class="PharmaCards.Views.MainView"
+			 Width="400" Height="800"
              x:DataType="vm:MainViewModel">
 
 	<ScrollViewer>
@@ -34,6 +35,7 @@
 				</Panel>
 			</StackPanel>
 
+			
 			<Panel x:Name="medPanel" IsVisible="False">
 				<StackPanel>
 					<TextBlock HorizontalAlignment="Center" FontSize="30"
@@ -48,7 +50,7 @@
 					</TextBlock>
 
 					<!--INFORMACION DEL MEDICAMENTO-->
-					<StackPanel x:Name="medInfo" IsVisible="False" Margin="0 20" Spacing="5">
+					<StackPanel x:Name="medInfo" IsVisible="False" IsEnabled="False" Margin="0 20" Spacing="5">
 
 						<!--TIPO DE MEDICAMENTO-->
 						<TextBlock HorizontalAlignment="Center" FontSize="25"
@@ -161,6 +163,8 @@
 					</Button>
 				</StackPanel>
 			</Panel>
+			
+			
 		</StackPanel>
 	</ScrollViewer>
 </UserControl>

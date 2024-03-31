@@ -8,20 +8,10 @@
 
 	<ItemGroup>
 		<AvaloniaResource Include="Assets\**" />
+		<EmbeddedResource Include="Assets\Cards.db">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
 	</ItemGroup>
-
-	<ItemGroup>
-		<None Remove="Assets\Cards.db" />
-	</ItemGroup>
-	
-
-  
-  <ItemGroup>
-    <Content Include="Assets\Cards.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 
 	<ItemGroup>
 		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
@@ -34,11 +24,5 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
 	</ItemGroup>
-
-
-	<ItemGroup>
-	  <AvaloniaResource Update="Assets\Cards.db">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </AvaloniaResource>
-	</ItemGroup>
+	
 </Project>
