@@ -60,7 +60,7 @@ namespace PharmaCards.Views
         public void GoBack(object sender, RoutedEventArgs args)
         {
             startPanel.IsVisible = true;
-            //startPanel.IsEnabled = true;
+            startPanel.IsEnabled = true;
             medPanel.IsVisible = false;
             medInfo.IsVisible = false;
             btnShow.IsVisible = true;
